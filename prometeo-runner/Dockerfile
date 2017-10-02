@@ -1,24 +1,22 @@
-FROM openshift/origin
+FROM jre:8
 
 RUN INSTALL_PKGS="ansible" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all
 
-# COPY . /var/lib/runner/
+COPY runner*.jar /deployments/
 
 LABEL io.k8s.display-name="Prometeo Runner" \
-      io.k8s.description="The runner is an Ansible control node in charge of the execution of a specified playbook." \
+      io.k8s.description="A temporary Ansible control node running the execution of a specified configuration set." \
       io.openshift.tags="openshift,prometeo,runner"
 
 USER 1001
 
-EXPOSE 80 443 22
+EXPOSE 8080 22
 
-# WORKDIR /var/lib/runner
+WORKDIR /deployments/
 
 ENV SERVER_PORT="8080" \
     LOG_DB_HOST="log" \
     LOG_DB_PORT="27017"
-
-# ENTRYPOINT ["/usr/bin/openshift-router"]

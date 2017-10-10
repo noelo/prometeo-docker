@@ -1,6 +1,6 @@
 FROM jre:8
 
-RUN INSTALL_PKGS="ansible" && \
+RUN INSTALL_PKGS="ansible git" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all

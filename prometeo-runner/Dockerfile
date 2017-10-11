@@ -3,7 +3,10 @@ FROM jre:8
 RUN INSTALL_PKGS="ansible git" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum clean all
+    yum clean all && \
+    mkdir /ansible && \
+    chmod a+rwx -R /ansible && \
+    chown -R 1001 /ansible
 
 COPY runner*.jar /deployments/
 

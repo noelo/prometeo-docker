@@ -24,11 +24,11 @@ EXPOSE 8080 22
 
 WORKDIR /deployments/
 
-ENV SERVER_PORT="8080" \
-    LOG_DB_HOST="log" \
-    LOG_DB_PORT="27017" \
-    LOG_DB_NAME="prometeo" \
-    CORE_POOL_SIZE="2" \
-    MAX_POOL_SIZE="2" \
-    QUEUE_CAPACITY="500" \
+ENV SERVER_PORT=8080 \
+    LOG_DB_HOST=log \
+    LOG_DB_PORT=27017 \
+    LOG_DB_NAME=prometeo \
+    CORE_POOL_SIZE=2 \
+    MAX_POOL_SIZE=2 \
+    QUEUE_CAPACITY=500
 

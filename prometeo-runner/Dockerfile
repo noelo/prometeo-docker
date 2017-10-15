@@ -3,22 +3,22 @@ FROM jre:8
 RUN INSTALL_PKGS="ansible git" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum clean all && \
-    adduser -r -u 1001 prometeocloud && \
+    yum clean all -y && \
+    adduser -r -u 1001 prometeo && \
     git config --system user.name prometeocloud && \
     git config --system user.email prometeocloud@gmail.com && \
-    mkdir /home/prometeocloud && \
-    chmod a+rwx -R /home/prometeocloud && \
-    chown -R 1001 /home/prometeocloud
+    mkdir /prometeo && \
+    chmod a+rwx -R /prometeo && \
+    chown -R 1001 /prometeo
 
-COPY runner*.jar LICENSE /deployments/
+COPY prometeo*.jar LICENSE /deployments/
 
 LABEL io.k8s.display-name="Prometeo" \
-      io.k8s.description="A scalable Ansible control node running the execution of configuration sets." \
-      io.openshift.tags="openshift,prometeo" \
-      maintainer="gatblau"
+      io.k8s.description="A scalable Ansible control node running the execution of configuration sets of a prescribed format." \
+      io.openshift.tags="openshift,ansible" \
+      maintainer="gatblau.org"
 
-USER prometeocloud
+USER prometeo
 
 EXPOSE 8080 22
 

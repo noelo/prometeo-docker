@@ -8,7 +8,7 @@ COPY run-java.sh debug-options.sh container-limits.sh java-default-options.sh /d
 
 RUN mkdir -p /deployments && \
     yum install -y java-1.8.0-openjdk && \
-    yum clean all && \
+    yum clean all -y && \
     rm -rf /var/cache/yum && \
     mkdir -p /opt/agent-bond && \
     curl http://central.maven.org/maven2/io/fabric8/agent-bond-agent/1.0.2/agent-bond-agent-1.0.2.jar -o /opt/agent-bond/agent-bond.jar && \

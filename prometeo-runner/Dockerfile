@@ -4,7 +4,7 @@ RUN INSTALL_PKGS="ansible git" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
-    adduser -r -u 1001 prometeo && \
+    adduser -r -m -d /prometeo -u 1001 prometeo && \
     git config --system user.name prometeocloud && \
     git config --system user.email prometeocloud@gmail.com && \
     mkdir /prometeo && \

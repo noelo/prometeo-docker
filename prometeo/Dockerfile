@@ -1,7 +1,7 @@
 FROM jre:8
 
 RUN INSTALL_PKGS="git" && \
-    yum install -y https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.0.0-1.el7.ans.noarch.rpm && \
+    yum install -y https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.1.0-1.el7.ans.noarch.rpm && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \

@@ -19,3 +19,15 @@ To test the proxy, using an applications such as [postman](https://www.getpostma
 The result should similar to using the [http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-security.html](http://localhost:8081/spring-boot/docs/current/reference/html/boot-features-security.html) URI.
 
 **NOTE**: removing or chaning the Authorization header will produce a 404 Not Found result.
+
+## Environment Variables
+The following variables configure the behaviour of the proxy in the docker image:
+
+| Environment Var  | Description  | Example  | Default |
+|---|---|---|---|
+| DESTINATION_URL   | The root of the site the proxy points to.  | http://docs.spring.io/  | None |
+| URL_MAPPINGS  | The pattern for filtering the paths which are to be accessible.  | "/*" for everything  | /* |
+| USER_PASSWORD  | The password to use for authenticating the "**user**" username. | e.g. testing  | None |
+| HTTP_PORT  | The port the proxy is listening on. | 80  | 8081 |
+
+**NOTE**: the username is always "user".

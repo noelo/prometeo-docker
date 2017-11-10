@@ -18,6 +18,13 @@ To test the proxy, using an applications such as [postman](https://www.getpostma
 
 The result should similar to using the [http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-security.html](http://localhost:8081/spring-boot/docs/current/reference/html/boot-features-security.html) URI.
 
+or alternatively run a curl command such as:
+
+```bash
+$ curl -L -H "Authorization: Basic dXNlcjp0ZXN0aW5n" "http://localhost:8081/spring-boot/docs/current/reference/html/boot-features-security.html"
+```
+Which should provide the same result after following the proxy server redirect after the authentication suceeds.
+
 **NOTE**: removing or chaning the Authorization header will produce a 404 Not Found result.
 
 ## Environment Variables

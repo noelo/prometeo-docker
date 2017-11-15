@@ -6,13 +6,13 @@ RUN INSTALL_PKGS="git" && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
     adduser -r -m -d /prometeo -u 1001 prometeo && \
-    mkdir /prometeo/.ssh && \
+    mkdir -p /prometeo/.ssh && \
     git config --system user.name prometeocloud && \
     git config --system user.email prometeocloud@gmail.com
 
 COPY prometeo*.jar LICENSE /deployments/
 
-COPY id_rsa* /prometeo/.ssh/
+COPY id_rsa id_rsa.pub /prometeo/.ssh/
 
 RUN chmod a+rwx -R /prometeo && \
     chown -R 1001 /prometeo && \
@@ -26,7 +26,7 @@ LABEL io.k8s.display-name="Prometeo" \
 
 USER prometeo
 
-EXPOSE 8080 22
+EXPOSE 8080
 
 WORKDIR /deployments/
 

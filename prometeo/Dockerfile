@@ -37,6 +37,6 @@ ENV SERVER_PORT=8080 \
     CORE_POOL_SIZE=2 \
     MAX_POOL_SIZE=2 \
     QUEUE_CAPACITY=500 \
+    RUN_AS=prometeo \
     HTTP_PROXY='_' \
     HTTPS_PROXY='_'
-

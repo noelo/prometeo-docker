@@ -1,6 +1,6 @@
 FROM jre:8
 
-RUN adduser -r -m -d /prometeo -u 1001 prometeo && \
+RUN useradd -d /prometeo -m -u 1001 prometeo && \
     chmod a+rwx -R /prometeo && \
     chown -R 1001 /prometeo
 

@@ -31,4 +31,5 @@ ENV SERVER_PORT=8080 \
     QUEUE_CAPACITY=500 \
     RUN_AS=prometeo \
     HTTP_PROXY='_' \
-    HTTPS_PROXY='_'
+    HTTPS_PROXY='_' \
+    NO_PROXY='_'

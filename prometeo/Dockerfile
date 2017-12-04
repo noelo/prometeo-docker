@@ -1,4 +1,7 @@
-FROM jre:8
+FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:latest
+USER root
+
+
 RUN INSTALL_PKGS="git" && \
     yum install -y https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.1.0-1.el7.ans.noarch.rpm && \
     yum install -y $INSTALL_PKGS && \

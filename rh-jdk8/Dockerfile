@@ -2,15 +2,15 @@ FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:latest
 
 USER root
 
-RUN mkdir -p /opt/agent-bond && mkdir -p /deployments &&\
+RUN mkdir -p /opt/agent-bond && \
     curl http://central.maven.org/maven2/io/fabric8/agent-bond-agent/1.0.2/agent-bond-agent-1.0.2.jar -o /opt/agent-bond/agent-bond.jar && \
     chmod 444 /opt/agent-bond/agent-bond.jar 
 
-COPY agent-bond-opts.sh /opt/run-java-options
+COPY agent-bond-opts.sh /opt/agent-bond/
 COPY jmx_exporter_config.yml /opt/agent-bond/
-COPY run-java.sh debug-options.sh container-limits.sh java-default-options.sh /deployments/
+# COPY run-java.sh debug-options.sh container-limits.sh java-default-options.sh /deployments/
 
-RUN chmod 755 /opt/run-java-options /deployments/run-java.sh /deployments/java-default-options.sh /deployments/container-limits.sh /deployments/debug-options.sh
+# RUN chmod 755 /opt/run-java-options /deployments/run-java.sh /deployments/java-default-options.sh /deployments/container-limits.sh /deployments/debug-options.sh
 
 LABEL io.k8s.description="Custom ATOS Builder" \
       io.k8s.display-name="ATOS Java Builder" \
@@ -26,4 +26,4 @@ USER 1001
 
 EXPOSE 8778 9779 8080 8443
 
-CMD [ "/deployments/run-java.sh" ]
+# CMD [ "/deployments/run-java.sh" ]

@@ -8,9 +8,9 @@ RUN mkdir -p /tmp/agent-bond && \
 
 COPY agent-bond-opts.sh /tmp/agent-bond/
 COPY jmx_exporter_config.yml /tmp/agent-bond/
-COPY run-java.sh debug-options.sh container-limits.sh java-default-options.sh /deployments/
+COPY run-java.sh debug-options.sh container-limits.sh java-default-options.sh /tmp/deployments/
 
-RUN chmod 755 /opt/run-java-options /deployments/run-java.sh /deployments/java-default-options.sh /deployments/container-limits.sh /deployments/debug-options.sh
+RUN chmod 755 /opt/run-java-options /tmp/deployments/run-java.sh /tmp/deployments/java-default-options.sh /tmp/deployments/container-limits.sh /tmp/deployments/debug-options.sh
 
 LABEL io.k8s.description="Custom ATOS Builder" \
       io.k8s.display-name="ATOS Java Builder" \
@@ -19,4 +19,4 @@ LABEL io.k8s.description="Custom ATOS Builder" \
 
 EXPOSE 8778 9779 8080 8443
 
-CMD [ "/deployments/run-java.sh" ]
+CMD [ "/tmp/deployments/run-java.sh" ]

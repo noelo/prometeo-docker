@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 # Fail on a single failed command
 set -eo pipefail

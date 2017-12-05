@@ -19,7 +19,8 @@ RUN mkdir -p /opt/agent-bond && \
 LABEL io.k8s.description="Custom ATOS Builder" \
       io.k8s.display-name="ATOS Java Builder" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,java,ATOS"
+      io.openshift.tags="builder,java,ATOS" \
+      io.openshift.s2i.scripts-url=/usr/local/s2i
 
 COPY ./.s2i/bin/ /usr/local/s2i
 

@@ -29,7 +29,7 @@ LABEL io.k8s.display-name="Prometeo" \
 
 USER prometeo
 
-WORKDIR /deployments/
+#WORKDIR /deployments/
 
 ENV SERVER_PORT=8080 \
     LOG_DB_HOST=log \

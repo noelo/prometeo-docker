@@ -25,6 +25,8 @@ LABEL io.k8s.description="Custom ATOS Builder" \
 
 COPY ./.s2i/bin/ /usr/local/s2i
 
+COPY ./opt/ /
+
 RUN chmod -R a+rx /usr/local/s2i
 
 RUN chown -R 1001:1001 /opt/ 

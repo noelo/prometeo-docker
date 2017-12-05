@@ -27,9 +27,9 @@ LABEL io.k8s.display-name="Prometeo" \
       io.openshift.tags="openshift,ansible" \
       maintainer="gatblau.org"
 
-USER prometeo
+USER 1001
 
-#WORKDIR /deployments/
+WORKDIR /deployments/
 
 ENV SERVER_PORT=8080 \
     LOG_DB_HOST=log \

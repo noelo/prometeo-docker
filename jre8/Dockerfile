@@ -21,6 +21,8 @@ LABEL io.k8s.description="Custom ATOS Builder" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,java,ATOS"
 
+COPY ./.s2i/bin/ /usr/local/s2i
+
 RUN chown -R 1001:1001 /opt/
 
 USER 1001
@@ -30,4 +32,4 @@ ENV JAVA_APP_DIR=/deployments \
 
 EXPOSE 8778 9779
 
-CMD [ "/deployments/run-java.sh" ]
+CMD [ "run" ]

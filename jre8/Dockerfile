@@ -27,7 +27,9 @@ COPY ./.s2i/bin/ /usr/local/s2i
 
 RUN chmod -R a+rx /usr/local/s2i
 
-RUN chown -R 1001:1001 /opt/
+RUN chown -R 1001:1001 /opt/ 
+
+RUN chown -R 1001:1001 /deployments/ 
 
 USER 1001
 

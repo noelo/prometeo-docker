@@ -21,7 +21,7 @@ LABEL io.k8s.description="Custom ATOS Builder" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,java,ATOS" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
-      io.openshift.s2i.destination= "///tmp"
+      io.openshift.s2i.destination=/tmp
 
 COPY ./.s2i/bin/ /usr/local/s2i
 

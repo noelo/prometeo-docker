@@ -20,7 +20,8 @@ LABEL io.k8s.description="Custom ATOS Builder" \
       io.k8s.display-name="ATOS Java Builder" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,java,ATOS" \
-      io.openshift.s2i.scripts-url=/usr/local/s2i
+      io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
+      io.openshift.s2i.destination= "/tmp"
 
 COPY ./.s2i/bin/ /usr/local/s2i
 
@@ -31,6 +32,6 @@ USER 1001
 ENV JAVA_APP_DIR=/deployments \
     JAVA_HOME=/etc/alternatives/jre
 
-EXPOSE 8778 9779
+EXPOSE 8080 8443 8778 9779 
 
 CMD [ "run" ]

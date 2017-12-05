@@ -25,7 +25,10 @@ LABEL io.k8s.description="Custom ATOS Builder" \
 
 COPY ./.s2i/bin/ /usr/local/s2i
 
-COPY ./opt/ /
+COPY ./opt/hawkular /opt/
+COPY ./opt/jolokia /opt/
+COPY ./opt/rh /opt/
+COPY ./opt/run-java /opt/
 
 RUN chmod -R a+rx /usr/local/s2i
 

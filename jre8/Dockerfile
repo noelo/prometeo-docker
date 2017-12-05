@@ -5,7 +5,8 @@ USER root
 RUN mkdir -p /deployments && \
     yum install -y bash java-1.8.0-openjdk && \
     yum clean all -y && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/yum && \
+    useradd -d /prometeo -m -u 1001 prometeo 
 
 COPY agent-bond-opts.sh /opt/run-java-options
 COPY jmx_exporter_config.yml /opt/agent-bond/

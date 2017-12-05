@@ -8,7 +8,6 @@ RUN INSTALL_PKGS="git" && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
     rm -rf /var/cache/yum && \
-    useradd -d /prometeo -m -u 1001 prometeo && \
     mkdir -p /prometeo/.ssh && \
     git config --system user.name prometeocloud && \
     git config --system user.email prometeocloud@gmail.com

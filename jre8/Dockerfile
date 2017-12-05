@@ -28,9 +28,9 @@ COPY ./.s2i/bin/ /usr/local/s2i
 
 COPY ./opt/ /opt/
 
-RUN mkdir -p /opt/jolokia/etc
+RUN mkdir -p /opt/jolokia/etc && chmod -R a+w /opt/jolokia/etc
 
-RUN chmod -R a+rx /usr/local/s2i && chmod -R a+rx /opt && chmod a+rx /opt/run-java/run-java.sh && chmod -R a+w /opt/jolokia/etc
+RUN chmod -R a+rx /usr/local/s2i && chmod -R a+rx /opt && chmod a+rx /opt/run-java/run-java.sh 
 
 RUN chown -R 1001:1001 /deployments/ 
 

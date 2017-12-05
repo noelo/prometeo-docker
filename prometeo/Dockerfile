@@ -12,8 +12,7 @@ RUN INSTALL_PKGS="git" && \
     git config --system user.name prometeocloud && \
     git config --system user.email prometeocloud@gmail.com
 
-COPY prometeo*.jar LICENSE /deployments/
-# COPY id_rsa id_rsa.pub config /prometeo/.ssh/
+COPY LICENSE /deployments/
 
 RUN chmod a+rwx -R /prometeo && \
     chown -R prometeo:prometeo /prometeo 
@@ -29,15 +28,3 @@ LABEL io.k8s.display-name="Prometeo" \
 USER 1001
 
 WORKDIR /deployments/
-
-# ENV SERVER_PORT=8080 \
-#     LOG_DB_HOST=log \
-#     LOG_DB_PORT=27017 \
-#     LOG_DB_NAME=prometeo \
-#     CORE_POOL_SIZE=2 \
-#     MAX_POOL_SIZE=2 \
-#     QUEUE_CAPACITY=500 \
-#     RUN_AS=prometeo \
-#     HTTP_PROXY='_' \
-#     HTTPS_PROXY='_' \
-#     NO_PROXY='_'

@@ -34,8 +34,6 @@ RUN chmod -R a+rx /usr/local/s2i && chmod -R a+rx /opt && chmod a+rx /opt/run-ja
 
 RUN chown -R 1001:1001 /deployments/ 
 
-# RUN chown -R 1001:1001 /opt/
-
 USER 1001
 
 ENV JAVA_APP_DIR=/deployments \

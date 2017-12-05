@@ -28,9 +28,11 @@ COPY ./.s2i/bin/ /usr/local/s2i
 
 COPY ./opt/ /opt/
 
-RUN chmod -R a+rx /usr/local/s2i && chmod -R a+rx /opt && chmod a+rx /opt/run-java/run-java.sh && chmod -R a+w /opt/jolokia/
+RUN chmod -R a+rx /usr/local/s2i && chmod -R a+rx /opt && chmod a+rx /opt/run-java/run-java.sh && chmod -R a+w /opt/jolokia/etc
 
-RUN chown -R 1001:1001 /opt/  && chown -R 1001:1001 /deployments/ 
+RUN chown -R 1001:1001 /deployments/ 
+
+# RUN chown -R 1001:1001 /opt/
 
 USER 1001
 

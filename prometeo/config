@@ -1,4 +1,4 @@
 Host *
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
-    IdentityFile /prometeo/.ssh/id_rsa
+    IdentityFile /prometeo/.ssh/keys/id_rsa
